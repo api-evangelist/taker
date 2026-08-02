@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: searched
+source: https://api.help.taker.io/
+docs: https://api.help.taker.io/
+format: custom
+envelope:
+  shape: '{ "error_key": ["Human readable message"] }'
+  description: >-
+    Errors are returned as a JSON object whose keys are error identifiers and
+    whose values are arrays of human-readable message strings. This is not
+    RFC 9457 problem+json.
+status_codes:
+  - status: 422
+    surface: DSP integration
+    description: Unprocessable entity — validation or business-rule failure on DSP order operations.
+  - status: 4xx
+    surface: Restaurant integration
+    description: >-
+      Client errors on restaurant (Taker GO) order operations, returned with the
+      same error_key/messages envelope.
+notes: >-
+  Taker does not publish a named error-code registry beyond the error_key
+  envelope. Order lifecycle uses status enumerations rather than error codes;
+  the failure/cancel/return states are captured as order statuses, see
+  data-model/taker-data-model.yml.

@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: searched
+source: https://api.help.taker.io/
+docs: https://api.help.taker.io/
+description: >-
+  The Taker GO integration API publishes a dedicated sandbox environment,
+  separate from production, for building and testing DSP and restaurant
+  integrations. Access is gated by integration tokens issued by Taker; no
+  self-service magic test values (test cards, fixture triggers, time clocks)
+  are published in the documentation.
+environments:
+  - name: sandbox
+    base_url: https://sandbox.go.taker.io/
+    purpose: Integration testing
+  - name: production
+    base_url: https://production.go.taker.io/
+    purpose: Live orders
+auth:
+  model: bearer-token
+  detail: authentication/taker-authentication.yml
+  notes: >-
+    Sandbox and production are separated by base URL and by the tokens issued
+    for each environment (TAKERGO_TOKEN / DSP_TOKEN).
+test_values:
+  published: false
+  notes: >-
+    Taker does not publish magic test identifiers, test cards, or fixture
+    triggers; sandbox exercise relies on issued sandbox tokens and live-shaped
+    order payloads.

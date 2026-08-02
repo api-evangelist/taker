@@ -1,0 +1,36 @@
+generated: '2026-07-21'
+method: searched
+source: live probe of /.well-known/ paths
+description: >-
+  Probe of the /.well-known/ discovery surface across the Taker API and web
+  hosts. No discovery documents are published; every probed path returned a
+  non-200 status. Recorded as observed absence.
+hosts:
+  - host: https://production.go.taker.io
+    documents:
+      - {path: /.well-known/security.txt, status: 405}
+      - {path: /.well-known/openid-configuration, status: 405}
+      - {path: /.well-known/oauth-authorization-server, status: 405}
+      - {path: /.well-known/api-catalog, status: 405}
+      - {path: /.well-known/ai-plugin.json, status: 405}
+  - host: https://sandbox.go.taker.io
+    documents:
+      - {path: /.well-known/security.txt, status: 405}
+      - {path: /.well-known/openid-configuration, status: 405}
+      - {path: /.well-known/oauth-authorization-server, status: 405}
+      - {path: /.well-known/api-catalog, status: 405}
+      - {path: /.well-known/ai-plugin.json, status: 405}
+  - host: https://api.help.taker.io
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+  - host: https://taker.io
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}

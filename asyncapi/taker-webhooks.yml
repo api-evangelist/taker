@@ -1,0 +1,58 @@
+generated: '2026-07-21'
+method: searched
+source: https://api.help.taker.io/
+docs: https://api.help.taker.io/
+spec_type: Webhooks
+transport: HTTP POST (application/json)
+description: >-
+  The Taker GO integration API delivers order lifecycle updates asynchronously
+  via webhooks. Both the DSP and restaurant integration surfaces receive status
+  callbacks; the restaurant surface additionally receives failed-assignment
+  notifications. No AsyncAPI document is published by the provider.
+webhooks:
+  - name: dsp_order_status
+    direction: Taker -> DSP
+    method: POST
+    endpoint: /webhooks/public
+    payload: Order status update, with optional driver details (name, phone, rating).
+  - name: restaurant_order
+    direction: Taker -> Restaurant
+    method: POST
+    endpoint: "{ORGANIZATION_URL}/takergo/v2/webhook/order"
+    payload: >-
+      Comprehensive order status update including assigned DSP information and
+      driver details.
+  - name: restaurant_attempts
+    direction: Taker -> Restaurant
+    method: POST
+    endpoint: "{ORGANIZATION_URL}/takergo/v2/webhook/attempts"
+    payload: Notification when a delivery assignment attempt fails.
+status_reference:
+  dsp_statuses:
+    - {name: NO_STATUS, code: 0}
+    - {name: PENDING, code: 11}
+    - {name: ASSIGNED, code: 12}
+    - {name: WAY_TO_STORE, code: 13}
+    - {name: ARRIVED_AT_STORE, code: 14}
+    - {name: WAY_TO_CUSTOMER, code: 15}
+    - {name: NEAR_CUSTOMER, code: 16}
+    - {name: DELIVERED, code: 21}
+    - {name: CANCELED, code: 31}
+    - {name: RETURNED, code: 32}
+    - {name: DSP_ISSUE, code: 33}
+    - {name: NOT_SENT, code: 34}
+  restaurant_statuses:
+    - {name: NOT_ASSIGNED, code: 1}
+    - {name: ASSIGNED, code: 2}
+    - {name: COLLECTING_ORDER, code: 3}
+    - {name: ON_THE_WAY, code: 4}
+    - {name: DELIVERED, code: 5}
+    - {name: CANCELED, code: 6}
+    - {name: FAILED_TO_ASSIGN, code: 7}
+    - {name: NEAR_PICK_UP, code: 8}
+    - {name: AT_PICK_UP, code: 9}
+    - {name: NEAR_DELIVERY, code: 10}
+    - {name: AT_DELIVERY, code: 11}
+    - {name: RETURNING, code: 12}
+    - {name: RETURNED, code: 13}
+    - {name: RE_ASSIGNING, code: 14}

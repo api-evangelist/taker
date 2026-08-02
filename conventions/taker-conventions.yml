@@ -1,0 +1,45 @@
+generated: '2026-07-21'
+method: searched
+source: https://api.help.taker.io/
+docs: https://api.help.taker.io/
+summary: >-
+  Cross-cutting request/response conventions for the Taker GO delivery
+  integration API, captured from the public DSP + restaurant integration
+  documentation. JSON over HTTPS, static bearer-token auth, a path-prefix
+  version marker on the restaurant surface, a simple key/messages error
+  envelope, and asynchronous status delivery via webhooks.
+authentication:
+  style: bearer-token
+  header: Authorization
+  detail: authentication/taker-authentication.yml
+content_type:
+  request: application/json
+  response: application/json
+versioning:
+  scheme: uri-path
+  detail: >-
+    Restaurant integration operations are served under a /v2/ path prefix
+    (e.g. POST /v2/orders). DSP integration operations are unversioned
+    (e.g. POST /orders).
+  detail_ref: lifecycle/taker-lifecycle.yml
+error_envelope:
+  shape: '{ "error_key": ["Human readable message"] }'
+  status_codes:
+    dsp: 422
+    restaurant: 4xx
+  detail_ref: errors/taker-error-codes.yml
+webhooks:
+  supported: true
+  delivery: HTTP POST to a caller-registered URL
+  detail_ref: asyncapi/taker-webhooks.yml
+idempotency:
+  supported: false
+  notes: No idempotency key header or replay-safety contract is documented.
+pagination:
+  supported: false
+  notes: No pagination parameters or cursors are documented; order lookups are by ID.
+rate_limiting:
+  documented: false
+  notes: No rate-limit headers or quota policy are documented.
+request_tracing:
+  documented: false

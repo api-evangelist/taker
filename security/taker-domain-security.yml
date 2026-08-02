@@ -1,0 +1,22 @@
+generated: '2026-07-21'
+method: probed
+source: live probe (curl HEAD + dig)
+hosts:
+  - {host: production.go.taker.io, https: true, server: nginx, hsts: false}
+  - {host: sandbox.go.taker.io, https: true, server: nginx, hsts: false}
+  - {host: api.help.taker.io, https: true, server: "nginx/1.18.0 (Ubuntu)", hsts: false}
+  - {host: taker.io, https: true, server: nginx, hsts: false, cert_not_after: "2026-09-18"}
+domains:
+  - domain: taker.io
+    dnssec: false
+    caa: []
+    spf: true
+    spf_record: "v=spf1 include:transmail.net include:spf.protection.outlook.com include:zcsend.net ~all"
+    dmarc: false
+    dmarc_policy: null
+notes: >-
+  All probed hosts serve HTTPS but none set an HSTS response header. The
+  taker.io registrable domain publishes an SPF record (Zoho TransMail,
+  Microsoft 365/Outlook, Zoho ZeptoMail) with a soft-fail (~all) policy but
+  has no DMARC record, no CAA records, and no DNSSEC. Absence of these records
+  is recorded as observed data.

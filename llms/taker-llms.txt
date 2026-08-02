@@ -1,0 +1,26 @@
+# Taker
+
+> Taker is a Riyadh-based restaurant technology platform providing online ordering, delivery operations, and marketing tools for food & beverage businesses. Its Taker GO product exposes a delivery-integration API that connects restaurants and delivery service providers (DSPs) for order creation, tracking, and status management.
+
+## APIs
+- [Taker GO Integration API](https://api.help.taker.io/): DSP and restaurant delivery integration — create/track/cancel orders and receive status webhooks. Production base https://production.go.taker.io/, sandbox https://sandbox.go.taker.io/. Bearer-token auth.
+
+## Docs
+- [API Documentation & DSP Integration Guide](https://api.help.taker.io/)
+- [Taker GO product](https://taker.io/taker-go)
+- [Company website](https://taker.io)
+- [Blog](https://taker.io/blog)
+
+## Artifacts
+- [Authentication profile](authentication/taker-authentication.yml)
+- [API conventions](conventions/taker-conventions.yml)
+- [Error codes](errors/taker-error-codes.yml)
+- [Webhook / event surface](asyncapi/taker-webhooks.yml)
+- [Sandbox environment](sandbox/taker-sandbox.yml)
+- [Lifecycle & versioning](lifecycle/taker-lifecycle.yml)
+- [Data model](data-model/taker-data-model.yml)
+- [Candidate MCP tools](mcp/taker-mcp.yml)
+
+## Legal
+- [Terms](https://taker.io/terms)
+- [Privacy](https://taker.io/privacy)

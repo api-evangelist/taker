@@ -1,7 +1,16 @@
 aid: taker
 name: Taker
-description: Taker is a company surfaced as a portfolio company of 500-global and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Taker is a Riyadh, Saudi Arabia-based restaurant technology company (founded
+  2018, backed by 500 Global) providing an all-in-one online ordering and
+  restaurant-growth platform used by 1,000+ restaurants. Its product suite spans
+  Taker Channels (branded web/mobile ordering), Taker GO (delivery operations),
+  Taker Flow (operations optimization), Taker Grow (marketing automation), and
+  Taker 360 (a unified dashboard across delivery aggregators). The Taker GO
+  delivery-integration API connects restaurants and delivery service providers
+  (DSPs) with bearer-token auth for order creation, tracking, cancellation, and
+  asynchronous status delivery via webhooks, across published sandbox and
+  production environments.
 url: https://raw.githubusercontent.com/api-evangelist/taker/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,12 +18,66 @@ x-backed-by:
 - 500-global
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-apis: []
+- Restaurant Technology
+- Online Ordering
+- Food Delivery
+- Delivery Integration
+- Webhooks
+- Saudi Arabia
+- MENA
+image: https://taker.io/wp-content/themes/taker-2026/assets/images/logo.svg
+apis:
+- name: Taker GO Integration API
+  description: >-
+    Delivery-integration API connecting restaurants (Taker GO merchants) and
+    delivery service providers (DSPs). Supports order creation, retrieval,
+    cancellation, DSP re-routing, and asynchronous order-status webhooks.
+    Bearer-token authentication (TAKERGO_TOKEN for restaurants, DSP_TOKEN for
+    delivery providers); JSON over HTTPS.
+  humanURL: https://api.help.taker.io/
+  baseURL: https://production.go.taker.io/
+  tags:
+  - Delivery
+  - Orders
+  - Webhooks
+  properties:
+  - type: Documentation
+    url: https://api.help.taker.io/
+  - type: APIReference
+    url: https://api.help.taker.io/
+  - type: Authentication
+    url: authentication/taker-authentication.yml
+  - type: Conventions
+    url: conventions/taker-conventions.yml
+  - type: ErrorCatalog
+    url: errors/taker-error-codes.yml
+  - type: Webhooks
+    url: asyncapi/taker-webhooks.yml
+  - type: Sandbox
+    url: sandbox/taker-sandbox.yml
+  - type: Lifecycle
+    url: lifecycle/taker-lifecycle.yml
+  - type: DataModel
+    url: data-model/taker-data-model.yml
+  - type: MCPServer
+    url: mcp/taker-mcp.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +86,44 @@ maintainers:
 common:
 - type: Website
   url: https://taker.io
+- type: DeveloperPortal
+  url: https://api.help.taker.io/
+- type: Documentation
+  url: https://api.help.taker.io/
+- type: APIReference
+  url: https://api.help.taker.io/
+- type: Blog
+  url: https://taker.io/blog
+- type: BlogRSS
+  url: https://taker.io/blog/feed
+- type: Support
+  url: https://taker.io/contact
+- type: TermsOfService
+  url: https://taker.io/terms
+- type: PrivacyPolicy
+  url: https://taker.io/privacy
+- type: Authentication
+  url: authentication/taker-authentication.yml
+- type: Conventions
+  url: conventions/taker-conventions.yml
+- type: ErrorCatalog
+  url: errors/taker-error-codes.yml
+- type: Webhooks
+  url: asyncapi/taker-webhooks.yml
+- type: Sandbox
+  url: sandbox/taker-sandbox.yml
+- type: Lifecycle
+  url: lifecycle/taker-lifecycle.yml
+- type: DataModel
+  url: data-model/taker-data-model.yml
+- type: MCPServer
+  url: mcp/taker-mcp.yml
+- type: LLMsTxt
+  url: llms/taker-llms.txt
+- type: DomainSecurity
+  url: security/taker-domain-security.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 11
+  pass: local-v1

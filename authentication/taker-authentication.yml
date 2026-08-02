@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: searched
+source: https://api.help.taker.io/
+docs: https://api.help.taker.io/
+summary:
+  types: [http]
+  http_schemes: [bearer]
+  token_delivery: Authorization header
+  notes: >-
+    The Taker GO integration API uses static bearer tokens issued by Taker. Two
+    distinct token roles exist: TAKERGO_TOKEN for restaurant-side integrations
+    and DSP_TOKEN for delivery-service-provider (DSP) integrations. There is no
+    OAuth, OpenID Connect, or scope surface documented.
+schemes:
+  - name: bearerAuth
+    type: http
+    scheme: bearer
+    in: header
+    parameter: Authorization
+    format: "Bearer <TOKEN>"
+    roles:
+      - name: TAKERGO_TOKEN
+        used_by: Restaurant integration (Taker GO merchant)
+      - name: DSP_TOKEN
+        used_by: Delivery Service Provider integration
+    required_headers:
+      - "Authorization: Bearer <TOKEN>"
+      - "Content-Type: application/json"
+    sources: [https://api.help.taker.io/]

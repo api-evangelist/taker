@@ -1,0 +1,33 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: https://api.help.taker.io/
+description: >-
+  Candidate MCP tool surface derived from the documented Taker GO integration
+  API operations. Taker does not publish an official hosted/remote MCP server;
+  this is a governance starting point, not a provider claim.
+server:
+  name: taker-go
+  transport: http
+tools:
+  - name: create_dsp_order
+    description: Create a delivery order on the DSP integration surface.
+    source_operation: "POST /orders"
+  - name: get_dsp_order
+    description: Retrieve a DSP order by ID.
+    source_operation: "GET /orders/{ID}"
+  - name: cancel_dsp_order
+    description: Cancel a DSP order by ID.
+    source_operation: "DELETE /orders/{ID}"
+  - name: create_delivery_request
+    description: Submit a delivery request on the restaurant integration surface.
+    source_operation: "POST /v2/orders"
+  - name: get_delivery_request
+    description: Check the status of a restaurant delivery request by ID.
+    source_operation: "GET /v2/orders/{ID}"
+  - name: route_next_dsp
+    description: Re-route a delivery request to an alternative delivery provider.
+    source_operation: "POST /v2/orders/{ID}/next_dsp"
+  - name: cancel_delivery_request
+    description: Cancel a restaurant delivery request by ID.
+    source_operation: "DELETE /v2/orders/{ID}"

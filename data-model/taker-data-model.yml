@@ -1,0 +1,34 @@
+generated: '2026-07-21'
+method: derived
+source: https://api.help.taker.io/
+description: >-
+  Entity-relationship model derived from the documented Taker GO integration
+  API resources (no OpenAPI is published; entities and fields are taken from
+  the DSP + restaurant integration documentation).
+entities:
+  - name: Order
+    id: ID
+    description: A delivery order routed from a restaurant (Taker GO merchant) to a DSP.
+    fields:
+      - status (enum, see asyncapi/taker-webhooks.yml status_reference)
+      - payment_type (enum: CASH=0, ONLINE=1, POINTS=2, TERMINAL=3)
+      - pickup (location coordinates + contact)
+      - delivery (location coordinates + contact)
+      - driver (see Driver)
+    relationships:
+      - {type: belongs_to, target: Restaurant, via: organization}
+      - {type: belongs_to, target: DSP, via: dsp}
+      - {type: has_one, target: Driver, via: driver}
+  - name: Driver
+    description: The delivery driver assigned to an order by the DSP.
+    fields: [name, phone, rating]
+    relationships:
+      - {type: belongs_to, target: DSP}
+  - name: DSP
+    description: Delivery Service Provider integrated with Taker GO.
+    relationships:
+      - {type: has_many, target: Order}
+  - name: Restaurant
+    description: Taker GO merchant / organization submitting delivery requests.
+    relationships:
+      - {type: has_many, target: Order}
