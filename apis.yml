@@ -39,6 +39,15 @@ tags:
 - Online Ordering
 - Food Delivery
 - Delivery Integration
+- Webhook
+- Saudi Arabia
+- MENA
+tags_raw:
+- Company
+- Restaurant Technology
+- Online Ordering
+- Food Delivery
+- Delivery Integration
 - Webhooks
 - Saudi Arabia
 - MENA
@@ -54,6 +63,10 @@ apis:
   humanURL: https://api.help.taker.io/
   baseURL: https://production.go.taker.io/
   tags:
+  - Delivery
+  - Order
+  - Webhook
+  tags_raw:
   - Delivery
   - Orders
   - Webhooks
