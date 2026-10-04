@@ -55,6 +55,7 @@ tags:
 - Webhook
 - Saudi Arabia
 - MENA
+- Restaurant
 tags_raw:
 - Company
 - Restaurant Technology
@@ -64,6 +65,7 @@ tags_raw:
 - Webhooks
 - Saudi Arabia
 - MENA
+- Restaurant
 image: https://taker.io/wp-content/themes/taker-2026/assets/images/logo.svg
 apis:
 - name: Taker GO Integration API
